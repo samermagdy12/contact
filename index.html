@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Prediction</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ML Model Prediction</h2>
+        <form method="POST" action="/predict" id="predictionForm">
+            <div class="form-group">
+                <label for="number_of_adults">Number of Adults:</label>
+                <input type="text" class="form-control" id="number_of_adults" name="number_of_adults" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_children">Number of Children:</label>
+                <input type="text" class="form-control" id="number_of_children" name="number_of_children" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_weekend_nights">Number of Weekend Nights:</label>
+                <input type="text" class="form-control" id="number_of_weekend_nights" name="number_of_weekend_nights" required>
+            </div>
+            <div class="form-group">
+                <label for="number_of_week_nights">Number of Week Nights:</label>
+                <input type="text" class="form-control" id="number_of_week_nights" name="number_of_week_nights" required>
+            </div>
+            <div class="form-group">
+                <label for="type_of_meal">Type of Meal:</label>
+                <input type="text" class="form-control" id="type_of_meal" name="type_of_meal" required>
+            </div>
+            <div class="form-group">
+                <label for="room_type">Room Type:</label>
+                <input type="text" class="form-control" id="room_type" name="room_type" required>
+            </div>
+            <div class="form-group">
+                <label for="lead_time">Lead Time:</label>
+                <input type="text" class="form-control" id="lead_time" name="lead_time" required>
+            </div>
+            <div class="form-group">
+                <label for="market_segment_type">Market Segment Type:</label>
+                <input type="text" class="form-control" id="market_segment_type" name="market_segment_type" required>
+            </div>
+            <div class="form-group">
+                <label for="average_price">Average Price:</label>
+                <input type="text" class="form-control" id="average_price" name="average_price" required>
+            </div>
+            <div class="form-group">
+                <label for="special_requests">Special Requests:</label>
+                <input type="text" class="form-control" id="special_requests" name="special_requests" required>
+            </div>
+            <div class="form-group">
+                <label for="car_parking_space">car_parking_space:</label>
+                <input type="text" class="form-control" id="car_parking_space" name="car_parking_space" required>
+            </div>
+            <div class="form-group">
+                <label for="repeated">repeated:</label>
+                <input type="text" class="form-control" id="repeated" name="repeated" required>
+            </div>
+            <div class="form-group">
+                <label for="P-C">P-C:</label>
+                <input type="text" class="form-control" id="P-C" name="P-C" required>
+            </div>
+            <div class="form-group">
+                <label for="P-not-C">P-not-C:</label>
+                <input type="text" class="form-control" id="P-not-C" name="P-not-C" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <div class="result">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
